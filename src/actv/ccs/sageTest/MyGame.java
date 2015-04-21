@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
+
 // import actv.ccs.listener.RuleEngineRunner;
 import actv.ccs.model.*;
 // import actv.ccs.model.type.FishState;
-import actv.ccs.sageTest.actions.*;
 import graphicslib3D.*;
 import sage.app.BaseGame;
 import sage.camera.ICamera;
@@ -24,6 +25,8 @@ import sage.renderer.IRenderer;
 import sage.scene.*;
 import sage.scene.SceneNode.*;
 import sage.scene.shape.*;
+import sage.scene.state.RenderState.RenderStateType;
+import sage.scene.state.TextureState;
 import sage.terrain.*;
 import sage.texture.*;
 
@@ -64,7 +67,7 @@ public class MyGame extends BaseGame {
 	//	spawnObjects();
 		createPerson();
 		// createScene();
-	//	initActions();
+		initActions();
 		// createFishTank();
 		createFishTankWalls();
 	//	startRunner();
@@ -830,7 +833,7 @@ public class MyGame extends BaseGame {
 		 */
 
 	}
-/*
+
 	private void initActions() {
 		im = getInputManager();
 		String kbName = im.getKeyboardName(); // error here. it shouldn't be
@@ -843,32 +846,33 @@ public class MyGame extends BaseGame {
 		System.out.println("controller: " + mName);
 
 		// for this area, need to do a checker if A and B and C are called...
-		IAction moveForwardA = new ForwardAction(cichlidA);
+		// IAction moveForwardA = new ForwardAction(cichlidA);
 		// IAction moveForwardB = new ForwardAction(cichlidB);
 		// IAction moveForwardC = new ForwardAction(cichlidC);
 		// IAction moveForwardO = new ForwardAction(cameraGuy);
 
-		IAction moveBackA = new BackwardAction(cichlidA);
+		// IAction moveBackA = new BackwardAction(cichlidA);
 		// IAction moveBackB = new BackwardAction(cichlidB);
 		// IAction moveBackC = new BackwardAction(cichlidC);
 		// IAction moveBackO = new BackwardAction(cameraGuy);
 
-		IAction moveLeftA = new LeftAction(cichlidA);
+		// IAction moveLeftA = new LeftAction(cichlidA);
 		// IAction moveLeftB = new LeftAction(cichlidB);
 		// IAction moveLeftC = new LeftAction(cichlidC);
 		// IAction moveLeftO = new LeftAction(cameraGuy);
 
-		IAction moveRightA = new RightAction(cichlidA);
+		// IAction moveRightA = new RightAction(cichlidA);
 		// IAction moveRightB = new RightAction(cichlidB);
 		// IAction moveRightC = new RightAction(cichlidC);
 		// IAction moveRightO = new RightAction(cameraGuy);
-		
+		/*
 		IAction upForwardA = new UpForwardAction(cichlidA);
 		IAction upBackA = new UpBackAction(cichlidA);
 		IAction downForwardA = new DownForwardAction(cichlidA);
 		IAction downBackA = new DownBackAction(cichlidA);
 		IAction quitGame = new QuitAction(this);
-
+		*/
+/*
 		im.associateAction(kbName,
 				net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame,
 				IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
@@ -899,8 +903,9 @@ public class MyGame extends BaseGame {
 		im.associateAction(kbName,
 				net.java.games.input.Component.Identifier.Key.NUMPAD1, downBackA,
 				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+				*/
 	}
-*/
+
 	public void createFishTankWalls() {
 		fishWalls = new Group();
 		
@@ -910,15 +915,8 @@ public class MyGame extends BaseGame {
 		ground.rotate(90, new Vector3D(1, 0, 0));
 		ground.translate(101.0f, -2f, 101.0f);
 		ground.setColor(Color.orange);
-		/*
 		// testing out new stuff
-		TextureState texState = (TextureState) renderer.createRenderState(RenderStateType.Texture);
-		texState.setTexture(texture);
-		texState.setEnabled(true);
-		ground.setRenderState(texState);
 		ground.setTexture(texture);
-
-		   		*/
 		fishWalls.addChild(ground);
 		ground.updateWorldBound();
 
